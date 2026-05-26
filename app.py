@@ -19,51 +19,6 @@ def load_data():
 
 df = load_data()
 
-# =========================
-# SIDEBAR FILTERS
-# =========================
-st.sidebar.header("Filters")
-
-if "district" in df.columns:
-    district = st.sidebar.multiselect(
-        "District",
-        df["district"].unique(),
-        default=df["district"].unique()[:5]
-    )
-    df = df[df["district"].isin(district)]
-
-if "sex" in df.columns:
-    sex = st.sidebar.multiselect(
-        "Sex",
-        df["sex"].unique(),
-        default=df["sex"].unique()
-    )
-    df = df[df["sex"].isin(sex)]
-
-if "age" in df.columns:
-    age = st.sidebar.multiselect(
-        "Age Group",
-        df["age"].unique(),
-        default=df["age"].unique()
-    )
-    df = df[df["age"].isin(age)]
-
-if "ethnicity" in df.columns:
-    ethnicity = st.sidebar.multiselect(
-        "Ethnicity",
-        df["ethnicity"].unique(),
-        default=df["ethnicity"].unique()
-    )
-    df = df[df["ethnicity"].isin(ethnicity)]
-
-if "date" in df.columns:
-    date_range = st.sidebar.date_input(
-        "Date Range",
-        [df["date"].min(), df["date"].max()]
-    )
-
-    df = df[(df["date"] >= pd.to_datetime(date_range[0])) &
-            (df["date"] <= pd.to_datetime(date_range[1]))]
 
 # =========================
 # KPI SECTION
