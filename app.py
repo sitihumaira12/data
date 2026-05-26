@@ -4,7 +4,7 @@ import plotly.express as px
 
 st.set_page_config(page_title="Malaysia Demographic Dashboard", layout="wide")
 
-st.title(" Malaysia Population Demographic Dashboard (DOSM)")
+st.title("Malaysia Population Demographic Dashboard (DOSM)")
 
 # =========================
 # LOAD DATA
@@ -129,7 +129,7 @@ st.plotly_chart(fig3, use_container_width=True)
 # =========================
 # 4. AGE DISTRIBUTION
 # =========================
-st.subheader(" Age Distribution")
+st.subheader("Age Distribution")
 
 age_df = df.groupby("age")["population"].sum().reset_index()
 
@@ -156,4 +156,4 @@ fig5 = px.pie(
     title="Population by Ethnicity"
 )
 
-
+st.plotly_chart(fig5, use_container_width=True)
